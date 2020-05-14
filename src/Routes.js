@@ -13,7 +13,7 @@ const Routes = () => (
       <Route
         exact
         path="/404"
-        component={lazy(() => <p>404</p> )}
+        component={lazy(() => import('./views/error') )}
       />
       <Redirect to="/404" />
     </Switch>
