@@ -1,0 +1,15 @@
+import styled from "styled-components";
+
+const ModalWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+
+  position: fixed;
+
+  background-color: rgba(0, 0, 0, 0.5) !important;
+`;
+
+export default ModalWrapper;

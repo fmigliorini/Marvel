@@ -8,21 +8,25 @@ import SearchInput from "../../components/SearchInput";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import CharacterName from "../../components/CharacterCard/CharacterName";
 import CharacterFavorite from "../../components/CharacterCard/CharacterFavorite";
+import Modal from "../../components/Modal/Modal";
 
 const Marvel = () => {
   return (
-    <Wrapper>
-      <Header>
-        <HeaderLogo src="./images/marvel-logo.png" alt="marvel-logo" />
-        <SearchInput />
-      </Header>
-      <CharacterCard source="https://media.ambito.com/adjuntos/239/imagenes/036/917/0036917742.jpg">
-        <CharacterName>Spider Man</CharacterName>
-        <CharacterFavorite>
-          <StarIcon />
-        </CharacterFavorite>
-      </CharacterCard>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Header>
+          <HeaderLogo src="./images/marvel-logo.png" alt="marvel-logo" />
+          <SearchInput />
+        </Header>
+        <CharacterCard source="https://media.ambito.com/adjuntos/239/imagenes/036/917/0036917742.jpg">
+          <CharacterName>Spider Man</CharacterName>
+          <CharacterFavorite>
+            <StarIcon />
+          </CharacterFavorite>
+        </CharacterCard>
+      </Wrapper>
+      <Modal />
+    </>
   );
 };
 
