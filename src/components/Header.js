@@ -4,10 +4,11 @@ const Header = styled.div`
   display: flex;
   width: 100%;
 
-  padding: 10px;
+  margin-bottom: 20px;
 
   justify-content: center;
   flex-flow: column;
+
   //justify-content: space-between;
 `;
 
