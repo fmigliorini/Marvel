@@ -18,7 +18,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-  isOpen: true,
+  isOpen: false,
 };
 
 export default Modal;
