@@ -6,6 +6,7 @@ const ModalWrapper = styled.div`
   height: 100%;
   width: 100%;
   bottom: 0;
+  left: 0;
 
   position: fixed;
 

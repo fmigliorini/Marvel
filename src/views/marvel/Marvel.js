@@ -24,13 +24,13 @@ const Marvel = () => {
             <StarIcon />
           </CharacterFavorite>
         </CharacterCard>
+        <CharacterModalDetails
+          isOpen={false}
+          title={`Title`}
+          description={`Description`}
+          imageSource="https://media.ambito.com/adjuntos/239/imagenes/036/917/0036917742.jpg"
+        />
       </Wrapper>
-      <CharacterModalDetails
-        isOpen={true}
-        title={`Title`}
-        description={`Description`}
-        imageSource="https://media.ambito.com/adjuntos/239/imagenes/036/917/0036917742.jpg"
-      />
     </>
   );
 };
