@@ -59,6 +59,24 @@ class MarvelService {
           reject(error);
         });
     });
+
+  getCommicsByCharacterId = (id) =>
+    new Promise(async (resolve, reject) => {
+      const url = `/characters/${id}/comics?${this.params}`;
+      axios
+        .get(url)
+        .then((response) => {
+          if (response.data) {
+            const { data } = response.data; // get clean data response.
+            resolve(data.results);
+          } else {
+            reject(null);
+          }
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
 }
 
 const marvelService = new MarvelService();

@@ -10,13 +10,7 @@ const CharacterModalDetails = (props) => {
 
   return (
     <Modal isOpen={isOpen}>
-      <CharacterModalWrapper>
-        <ImageSection source={imageSource}></ImageSection>
-        <DescriptionSection>
-          {`Title: ${title}`}
-          {`Description: ${description}`}
-        </DescriptionSection>
-      </CharacterModalWrapper>
+      <CharacterModalWrapper></CharacterModalWrapper>
     </Modal>
   );
 };
