@@ -8,7 +8,6 @@ const Marvel = () => {
   const [characters, setCharacters] = useState([]);
   const getData = useCallback(async () => {
     const data = await marvelService.getOne();
-    console.log("data,", data);
     setCharacters(data);
   }, []);
 
