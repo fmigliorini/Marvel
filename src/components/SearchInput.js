@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { device } from "../constants/device";
 
 const SearchInput = styled.input`
   display: flex;
+  width: 100%;
   max-width: 100%;
 
   padding: 10px;
@@ -12,6 +14,10 @@ const SearchInput = styled.input`
 
   color: black;
   font-size: 1rem;
+
+  @media ${device.tablet} {
+    padding: 0 20px;
+  }
 `;
 
 export default SearchInput;

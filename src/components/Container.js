@@ -1,22 +1,17 @@
 import styled from "styled-components";
 import { device } from "../constants/device";
 
-const Header = styled.div`
+const Container = styled.div`
   display: flex;
-  width: 100%;
+  flex-direction: column;
 
-  margin-bottom: 20px;
+  padding: 0 10px;
 
-  justify-content: center;
-  flex-flow: column;
-
-  //justify-content: space-between;
   @media ${device.tablet} {
     flex-direction: row;
-    height: 50px;
-
+    flex-wrap: wrap;
     justify-content: space-around;
   }
 `;
 
-export default Header;
+export default Container;
