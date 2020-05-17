@@ -8,6 +8,7 @@ import Container from "../../components/Container";
 
 const Results = (props) => {
   const { characters } = props;
+  console.log("aca", characters);
 
   return (
     <Container>

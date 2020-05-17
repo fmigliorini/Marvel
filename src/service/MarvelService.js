@@ -4,6 +4,7 @@ import {
   MARVEL_API_PUBLICK_KEY,
   MARVEL_API_HASH,
 } from "../config";
+import { randomInt } from "../utils/math";
 
 class MarvelService {
   // Params are not working on createInstance in the current
@@ -19,12 +20,27 @@ class MarvelService {
             const { data } = response.data; // get clean data response.
             resolve(data.results);
           } else {
-            reject("Error in the request");
+            reject(null);
           }
         })
         .catch((error) => {
           reject(error);
         });
+    });
+
+  getOne = () =>
+    new Promise(async (resolve, reject) => {
+      const data = await this.getAll();
+      if (!data) {
+        reject(`Opps`);
+      }
+
+      const randomNumber = randomInt(0, data.length);
+      if (data[randomNumber]) {
+        resolve([data[randomNumber]]);
+      }
+
+      reject(`Opps`);
     });
 }
 
