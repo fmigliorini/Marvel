@@ -13,10 +13,10 @@ const Results = (props) => {
     <Container>
       {characters &&
         characters.map((character) => {
-          const { name, thumbnail } = character;
+          const { id, name, thumbnail } = character;
           const urlImage = `${thumbnail.path}.${thumbnail.extension}`;
           return (
-            <CharacterCard source={urlImage}>
+            <CharacterCard key={id} source={urlImage}>
               <CharacterName>{name}</CharacterName>
               <CharacterFavorite>
                 <StarIcon />

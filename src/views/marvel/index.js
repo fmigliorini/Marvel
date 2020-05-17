@@ -7,7 +7,7 @@ import marvelService from "../../service/MarvelService";
 const Marvel = () => {
   const [characters, setCharacters] = useState([]);
   const getData = useCallback(async () => {
-    const data = await marvelService.getAll();
+    const data = await marvelService.getOne();
     setCharacters(data);
   }, []);
 
