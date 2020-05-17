@@ -25,6 +25,10 @@ const CharacterCard = styled.div`
     -moz-box-shadow: inset 0px 0px 248px -41px rgba(0, 0, 0, 0.75);
     box-shadow: inset 0px 0px 248px -41px rgba(0, 0, 0, 0.75);
   }
+
+  @media ${device.laptop} {
+    width: 24%;
+  }
 `;
 
 export default CharacterCard;
