@@ -8,7 +8,7 @@ import Container from "../../components/Container";
 
 const Results = (props) => {
   const { characters } = props;
-  console.log(characters);
+
   return (
     <Container>
       {characters &&
