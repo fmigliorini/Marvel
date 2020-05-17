@@ -14,11 +14,9 @@ const Marvel = (props) => {
 
   const getData = useCallback(async () => {
     if (serachInput) {
-      console.log("searchInput", serachInput);
       return setCharacters(await marvelService.searchByName(serachInput));
     }
     if (searchUrl) {
-      console.log("searchUrl", searchUrl);
       setCharacters(await marvelService.searchByName(searchUrl));
     } else {
       setCharacters(await marvelService.getOne());
