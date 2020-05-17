@@ -42,6 +42,23 @@ class MarvelService {
 
       reject(`Opps`);
     });
+
+  searchByName = (characterName) =>
+    new Promise(async (resolve, reject) => {
+      axios
+        .get(`/characters?${this.params}&nameStartsWith=${characterName}`)
+        .then((response) => {
+          if (response.data) {
+            const { data } = response.data; // get clean data response.
+            resolve(data.results);
+          } else {
+            reject(null);
+          }
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
 }
 
 const marvelService = new MarvelService();
