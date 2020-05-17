@@ -3,7 +3,6 @@ import { device } from "../constants/device";
 
 const SearchInput = styled.input`
   display: flex;
-  width: 100%;
   max-width: 100%;
 
   padding: 10px;
@@ -16,6 +15,7 @@ const SearchInput = styled.input`
   font-size: 1rem;
 
   @media ${device.tablet} {
+    width: 100%;
     padding: 0 20px;
   }
 `;

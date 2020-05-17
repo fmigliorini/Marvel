@@ -10,7 +10,7 @@ const Container = styled.div`
   @media ${device.tablet} {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 `;
 

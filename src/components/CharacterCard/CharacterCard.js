@@ -8,6 +8,8 @@ const CharacterCard = styled.div`
   max-width: 100%;
   height: 380px;
 
+  margin-bottom: 20px;
+
   background: url(${(props) => props.source ?? ""});
   background-color: grey;
   background-repeat: no-repeat;
@@ -16,8 +18,7 @@ const CharacterCard = styled.div`
   font-weight: 700;
 
   @media ${device.tablet} {
-    width: 300px;
-    margin-bottom: 20px;
+    width: 49%;
     border-radius: 10px;
 
     -webkit-box-shadow: inset 0px 0px 248px -41px rgba(0, 0, 0, 0.75);
