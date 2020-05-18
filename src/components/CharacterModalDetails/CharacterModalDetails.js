@@ -1,35 +1,65 @@
-import React from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import PropTypes from "prop-types";
-import ImageSection from "./components/ImageSection";
-import DescriptionSection from "./components/DescriptionSection";
+
 import Modal from "../Modal";
 import CharacterModalWrapper from "./components/CharacterModalWrapper";
+import CharacterModalComicWrapper from "./components/CharacterModalComicWrapper";
+import CharacterModalComicImage from "./components/CharacterModalComicImage";
+import CharacterModalComicTitle from "./components/CharacterModalComicTitle";
+import CharacterModalComicDescription from "./components/CharacterModalComicDescription";
+import marvelService from "../../service/MarvelService";
+import CharacterModalComicWrapperDetails from "./components/CharacterModalComicWrapperDetails";
 
 const CharacterModalDetails = (props) => {
-  const { isOpen, imageSource, title, description } = props;
+  const [comics, setComics] = useState([]);
+
+  const { isOpen, characterName, characterId, close } = props;
+
+  const getComics = useCallback(async () => {
+    const data = await marvelService.getCommicsByCharacterId(characterId);
+    setComics(data);
+  }, [characterId]);
+
+  useEffect(() => {
+    getComics();
+  }, [getComics, characterId]);
 
   return (
-    <Modal isOpen={isOpen}>
+    <Modal isOpen={isOpen} title={characterName} close={close}>
       <CharacterModalWrapper>
-        <ImageSection source={imageSource}></ImageSection>
-        <DescriptionSection>
-          {`Title: ${title}`}
-          {`Description: ${description}`}
-        </DescriptionSection>
+        {comics &&
+          comics.map((comic) => {
+            const { title, thumbnail, description } = comic;
+            const imageSource = `${thumbnail.path}.${thumbnail.extension}`;
+            return (
+              <>
+                <CharacterModalComicWrapper>
+                  <CharacterModalComicImage source={imageSource} />
+                  <CharacterModalComicWrapperDetails>
+                    <CharacterModalComicTitle>{title}</CharacterModalComicTitle>
+                    <CharacterModalComicDescription>
+                      {description}
+                    </CharacterModalComicDescription>
+                  </CharacterModalComicWrapperDetails>
+                </CharacterModalComicWrapper>
+              </>
+            );
+          })}
       </CharacterModalWrapper>
     </Modal>
   );
 };
 
 CharacterModalDetails.propTypes = {
-  imageSource: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  characterId: PropTypes.number.isRequired,
+  characterName: PropTypes.number.isRequired,
   isOpen: PropTypes.bool,
+  close: PropTypes.func.isRequired,
 };
 
 CharacterModalDetails.defaultProps = {
   isOpen: false,
+  name: "spder",
 };
 
 export default CharacterModalDetails;

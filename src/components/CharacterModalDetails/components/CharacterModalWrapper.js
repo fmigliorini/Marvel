@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "../../../constants/device";
 
 const CharacterModalWrapper = styled.div`
   display: flex;
@@ -7,9 +6,7 @@ const CharacterModalWrapper = styled.div`
 
   width: 100%;
 
-  @media ${device.tablet} {
-    flex-direction: row;
-  }
+  margin-bottom: 20px;
 `;
 
 export default CharacterModalWrapper;
