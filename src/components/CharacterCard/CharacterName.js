@@ -7,7 +7,7 @@ const CharacterName = styled.span`
 
   font-size: 1em;
   font-weight: 700;
-  color: black;
+  color: white;
 `;
 
 export default CharacterName;
