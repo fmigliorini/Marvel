@@ -6,7 +6,6 @@ import { FavoriteContext } from "../../context/FavoriteContext";
 import Header from "../../components/Header";
 import HeaderLogo from "../../components/HeaderLogo";
 import SearchInput from "../../components/SearchInput";
-import IconContainer from "../../components/IconContainer";
 import FavoriteButton from "../../components/FavoriteButton";
 
 const TopBar = (props) => {
@@ -18,19 +17,20 @@ const TopBar = (props) => {
     <Header>
       <HeaderLogo src="./images/marvel-logo.png" alt="marvel-logo" />
       <SearchInput
+        placeholder="Search"
         value={search}
         onChange={(event) => {
           searchInput(event.target.value);
           setSearch(event.target.value);
         }}
       />
-      <IconContainer>
+      <FavoriteButton>
         <StarIcon
           onClick={() => {
             if (search && search !== +"") updateFavorite(search);
           }}
         />
-      </IconContainer>
+      </FavoriteButton>
       <FavoriteButton
         onClick={() => {
           setSearch(favorite);

@@ -6,6 +6,7 @@ import ModalWrapper from "./components/ModalWrapper";
 import ModalCard from "./components/ModalCard";
 import ModalHeader from "./components/ModalHeader";
 import ModalTitle from "./components/ModalTitle";
+import IconContainer from "../IconContainer";
 
 const Modal = (props) => {
   const { isOpen, title, close } = props;
@@ -15,11 +16,13 @@ const Modal = (props) => {
       <ModalCard>
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>
-          <CloseIcon
-            onClick={() => {
-              close();
-            }}
-          />
+          <IconContainer>
+            <CloseIcon
+              onClick={() => {
+                close();
+              }}
+            />
+          </IconContainer>
         </ModalHeader>
         {props.children}
       </ModalCard>
