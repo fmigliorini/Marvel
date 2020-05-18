@@ -27,7 +27,7 @@ const TopBar = (props) => {
       <IconContainer>
         <StarIcon
           onClick={() => {
-            updateFavorite(search);
+            if (search && search !== +"") updateFavorite(search);
           }}
         />
       </IconContainer>
@@ -37,7 +37,7 @@ const TopBar = (props) => {
           searchInput(favorite);
         }}
       >
-        Favorite
+        {"Favorite"}
       </FavoriteButton>
     </Header>
   );
