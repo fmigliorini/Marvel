@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import Modal from "../Modal";
 import CharacterModalWrapper from "./components/CharacterModalWrapper";
-import CharacterModalTitle from "./components/CharacterModalTitle";
 import CharacterModalComicWrapper from "./components/CharacterModalComicWrapper";
 import CharacterModalComicImage from "./components/CharacterModalComicImage";
 import CharacterModalComicTitle from "./components/CharacterModalComicTitle";
@@ -30,7 +29,6 @@ const CharacterModalDetails = (props) => {
       <CharacterModalWrapper>
         {comics &&
           comics.map((comic) => {
-            console.log(comic);
             const { title, thumbnail, description } = comic;
             const imageSource = `${thumbnail.path}.${thumbnail.extension}`;
             return (

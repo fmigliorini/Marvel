@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "../../../constants/device";
 
 const CharacterModalWrapper = styled.div`
   display: flex;
