@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ImageSection = styled.div`
+const CharacterModalComicImage = styled.div`
   min-height: 300px;
   width: 100%;
   height: auto;
@@ -11,4 +11,4 @@ const ImageSection = styled.div`
   background-size: cover;
 `;
 
-export default ImageSection;
+export default CharacterModalComicImage;

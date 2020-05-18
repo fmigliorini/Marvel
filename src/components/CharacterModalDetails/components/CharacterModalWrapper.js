@@ -7,8 +7,9 @@ const CharacterModalWrapper = styled.div`
 
   width: 100%;
 
+  margin-bottom: 20px;
   @media ${device.tablet} {
-    flex-direction: row;
+    // flex-direction: row;
   }
 `;
 

@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { Star as StarIcon } from "react-feather";
 
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
@@ -7,7 +9,7 @@ import CharacterFavorite from "../../components/CharacterCard/CharacterFavorite"
 import Container from "../../components/Container";
 
 const Results = (props) => {
-  const { characters } = props;
+  const { characters, onSelect } = props;
 
   return (
     <Container>
@@ -16,7 +18,13 @@ const Results = (props) => {
           const { id, name, thumbnail } = character;
           const urlImage = `${thumbnail.path}.${thumbnail.extension}`;
           return (
-            <CharacterCard key={id} source={urlImage}>
+            <CharacterCard
+              key={id}
+              source={urlImage}
+              onClick={() => {
+                onSelect(id);
+              }}
+            >
               <CharacterName>{name}</CharacterName>
               <CharacterFavorite>
                 <StarIcon />
@@ -26,6 +34,11 @@ const Results = (props) => {
         })}
     </Container>
   );
+};
+
+Results.propTypes = {
+  characters: PropTypes.array.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };
 
 export default Results;
