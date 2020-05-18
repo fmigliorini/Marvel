@@ -6,6 +6,7 @@ import marvelService from "../../service/MarvelService";
 import queryString from "query-string";
 
 import CharacterModalDetails from "../../components/CharacterModalDetails";
+import { FavorteProvider } from "../../context/FavoriteContext";
 
 const Marvel = (props) => {
   const [characters, setCharacters] = useState([]);
@@ -58,7 +59,7 @@ const Marvel = (props) => {
   };
 
   return (
-    <>
+    <FavorteProvider>
       <Wrapper>
         <TopBar searchInput={updateSearch} />
         <Results onSelect={selectCharacter} characters={characters} />
@@ -73,7 +74,7 @@ const Marvel = (props) => {
           }}
         />
       )}
-    </>
+    </FavorteProvider>
   );
 };
 
