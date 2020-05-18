@@ -12,6 +12,7 @@ const Header = styled.div`
 
   //justify-content: space-between;
   @media ${device.tablet} {
+    padding-top: 10px;
     flex-direction: row;
     height: 50px;
 

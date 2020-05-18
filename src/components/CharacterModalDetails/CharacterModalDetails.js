@@ -29,20 +29,18 @@ const CharacterModalDetails = (props) => {
       <CharacterModalWrapper>
         {comics &&
           comics.map((comic) => {
-            const { title, thumbnail, description } = comic;
+            const { title, thumbnail, description, id } = comic;
             const imageSource = `${thumbnail.path}.${thumbnail.extension}`;
             return (
-              <>
-                <CharacterModalComicWrapper>
-                  <CharacterModalComicImage source={imageSource} />
-                  <CharacterModalComicWrapperDetails>
-                    <CharacterModalComicTitle>{title}</CharacterModalComicTitle>
-                    <CharacterModalComicDescription>
-                      {description}
-                    </CharacterModalComicDescription>
-                  </CharacterModalComicWrapperDetails>
-                </CharacterModalComicWrapper>
-              </>
+              <CharacterModalComicWrapper key={id}>
+                <CharacterModalComicImage source={imageSource} />
+                <CharacterModalComicWrapperDetails>
+                  <CharacterModalComicTitle>{title}</CharacterModalComicTitle>
+                  <CharacterModalComicDescription>
+                    {description}
+                  </CharacterModalComicDescription>
+                </CharacterModalComicWrapperDetails>
+              </CharacterModalComicWrapper>
             );
           })}
       </CharacterModalWrapper>
@@ -52,7 +50,7 @@ const CharacterModalDetails = (props) => {
 
 CharacterModalDetails.propTypes = {
   characterId: PropTypes.number.isRequired,
-  characterName: PropTypes.number.isRequired,
+  characterName: PropTypes.string.isRequired,
   isOpen: PropTypes.bool,
   close: PropTypes.func.isRequired,
 };
