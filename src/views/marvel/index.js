@@ -7,11 +7,13 @@ import queryString from "query-string";
 
 import CharacterModalDetails from "../../components/CharacterModalDetails";
 import { FavorteProvider } from "../../context/FavoriteContext";
+import Loading from "../../components/Loading";
 
 const Marvel = (props) => {
   const [characters, setCharacters] = useState([]);
   const [serachInput, setSearchInput] = useState(null);
   const [searchUrl, setSearchUrl] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const [characterSelected, setCharacterSelected] = useState(null);
   const [characterNameSelected, setCharacterNameSelected] = useState(null);
@@ -20,14 +22,17 @@ const Marvel = (props) => {
   const timeoutRef = useRef(null); // REF TO KEEP TRACK OF THE TIMEOUT
 
   const getData = useCallback(async () => {
+    setLoading(true);
     if (serachInput) {
-      return setCharacters(await marvelService.searchByName(serachInput));
-    }
-    if (searchUrl) {
-      setCharacters(await marvelService.searchByName(searchUrl));
+      setCharacters(await marvelService.searchByName(serachInput));
     } else {
-      setCharacters(await marvelService.getOne());
+      if (searchUrl) {
+        setCharacters(await marvelService.searchByName(searchUrl));
+      } else {
+        setCharacters(await marvelService.getOne());
+      }
     }
+    setLoading(false);
   }, [serachInput, searchUrl]);
 
   // only the firstTime
@@ -38,6 +43,8 @@ const Marvel = (props) => {
 
   // on input change
   useEffect(() => {
+    setLoading(true);
+
     if (timeoutRef.current !== null) {
       clearTimeout(timeoutRef.current);
     }
@@ -62,7 +69,11 @@ const Marvel = (props) => {
     <FavorteProvider>
       <Wrapper>
         <TopBar searchInput={updateSearch} />
-        <Results onSelect={selectCharacter} characters={characters} />
+        {loading ? (
+          <Loading />
+        ) : (
+          <Results onSelect={selectCharacter} characters={characters} />
+        )}
       </Wrapper>
       {characterSelected && (
         <CharacterModalDetails
