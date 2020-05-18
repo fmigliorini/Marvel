@@ -3,12 +3,11 @@ import { device } from "../../../constants/device";
 
 const CharacterModalComicWrapperDetails = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   width: 100%;
 
   @media ${device.tablet} {
-    flex-direction: column;
     padding: 0 20px;
   }
 `;
