@@ -22,7 +22,7 @@ const Results = (props) => {
               key={id}
               source={urlImage}
               onClick={() => {
-                onSelect(id);
+                onSelect(id, name);
               }}
             >
               <CharacterName>{name}</CharacterName>

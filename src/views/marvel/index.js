@@ -13,6 +13,7 @@ const Marvel = (props) => {
   const [searchUrl, setSearchUrl] = useState(null);
 
   const [characterSelected, setCharacterSelected] = useState(null);
+  const [characterNameSelected, setCharacterNameSelected] = useState(null);
   const [showMoreInfo, setShowMoreInfo] = useState(true);
 
   const timeoutRef = useRef(null); // REF TO KEEP TRACK OF THE TIMEOUT
@@ -50,7 +51,8 @@ const Marvel = (props) => {
     setSearchInput(value);
   };
 
-  const selectCharacter = (id) => {
+  const selectCharacter = (id, name) => {
+    setCharacterNameSelected(name);
     setCharacterSelected(id);
     setShowMoreInfo(true);
   };
@@ -65,6 +67,10 @@ const Marvel = (props) => {
         <CharacterModalDetails
           isOpen={showMoreInfo}
           characterId={characterSelected}
+          characterName={characterNameSelected}
+          close={() => {
+            setShowMoreInfo(false);
+          }}
         />
       )}
     </>

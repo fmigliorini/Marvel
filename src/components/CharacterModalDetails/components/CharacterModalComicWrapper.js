@@ -8,7 +8,8 @@ const CharacterModalComicWrapper = styled.div`
   width: 100%;
 
   @media ${device.tablet} {
-    // flex-direction: row;
+    flex-direction: row;
+    margin-bottom: 20px;
   }
 `;
 

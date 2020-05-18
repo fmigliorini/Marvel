@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const CharacterModalComicTitle = styled.h3`
-  width: 100%;
+const CharacterModalComicTitle = styled.p`
+  font-weight: bold;
 `;
 
 export default CharacterModalComicTitle;

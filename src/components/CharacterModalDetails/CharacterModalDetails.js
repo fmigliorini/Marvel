@@ -9,11 +9,12 @@ import CharacterModalComicImage from "./components/CharacterModalComicImage";
 import CharacterModalComicTitle from "./components/CharacterModalComicTitle";
 import CharacterModalComicDescription from "./components/CharacterModalComicDescription";
 import marvelService from "../../service/MarvelService";
+import CharacterModalComicWrapperDetails from "./components/CharacterModalComicWrapperDetails";
 
 const CharacterModalDetails = (props) => {
   const [comics, setComics] = useState([]);
 
-  const { isOpen, name, characterId } = props;
+  const { isOpen, characterName, characterId, close } = props;
 
   const getComics = useCallback(async () => {
     const data = await marvelService.getCommicsByCharacterId(characterId);
@@ -25,26 +26,27 @@ const CharacterModalDetails = (props) => {
   }, [getComics, characterId]);
 
   return (
-    <Modal isOpen={isOpen}>
+    <Modal isOpen={isOpen} title={characterName} close={close}>
       <CharacterModalWrapper>
-        <CharacterModalTitle>{name}</CharacterModalTitle>
-        <CharacterModalComicWrapper>
-          {comics &&
-            comics.map((comic) => {
-              console.log(comic);
-              const { title, thumbnail, description } = comic;
-              const imageSource = `${thumbnail.path}.${thumbnail.extension}`;
-              return (
-                <>
+        {comics &&
+          comics.map((comic) => {
+            console.log(comic);
+            const { title, thumbnail, description } = comic;
+            const imageSource = `${thumbnail.path}.${thumbnail.extension}`;
+            return (
+              <>
+                <CharacterModalComicWrapper>
                   <CharacterModalComicImage source={imageSource} />
-                  <CharacterModalComicTitle>{title}</CharacterModalComicTitle>
-                  <CharacterModalComicDescription>
-                    {description}
-                  </CharacterModalComicDescription>
-                </>
-              );
-            })}
-        </CharacterModalComicWrapper>
+                  <CharacterModalComicWrapperDetails>
+                    <CharacterModalComicTitle>{title}</CharacterModalComicTitle>
+                    <CharacterModalComicDescription>
+                      {description}
+                    </CharacterModalComicDescription>
+                  </CharacterModalComicWrapperDetails>
+                </CharacterModalComicWrapper>
+              </>
+            );
+          })}
       </CharacterModalWrapper>
     </Modal>
   );
@@ -52,7 +54,9 @@ const CharacterModalDetails = (props) => {
 
 CharacterModalDetails.propTypes = {
   characterId: PropTypes.number.isRequired,
+  characterName: PropTypes.number.isRequired,
   isOpen: PropTypes.bool,
+  close: PropTypes.func.isRequired,
 };
 
 CharacterModalDetails.defaultProps = {

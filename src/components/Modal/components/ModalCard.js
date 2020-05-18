@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const ModalCard = styled.div`
   display: flex;
-  align-selft: center;
+  flex-direction: column;
+
   max-height: calc(100vh - 210px);
   width: 75%;
 
