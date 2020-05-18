@@ -7,8 +7,6 @@ const IconContainer = styled.div`
 
   @media ${device.tablet} {
     border: none;
-    width: 50px;
-    margin: auto;
   }
 `;
 
