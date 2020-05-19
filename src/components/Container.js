@@ -9,8 +9,12 @@ const Container = styled.div`
   @media ${device.tablet} {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 50px;
+
+    & > div {
+      margin-right: 1%;
+    }
   }
 `;
 
